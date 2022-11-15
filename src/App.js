@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from "./comp/dashboard/dashboard";
+import Navbar from "./comp/navbar/navbar";
+import Work from "./comp/Work/work";
+import FriendsReferred from "./comp/friends_referred";
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <div className="mb-10 mt-5 sm:mt-0">
+ {/* <Navbar />
+   <Dashboard />
+   <Work />  */}
+
+   {/* <FriendsReferred />  */}
+   <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<>
+        <Navbar />
+        <Dashboard />
+        <Work />
+      </>}>
+     </Route>
+     <Route path="/refer" element={<FriendsReferred /> }></Route>
+    </Routes>
+   </BrowserRouter>
+   </div>
+   </>
   );
 }
-
 export default App;
